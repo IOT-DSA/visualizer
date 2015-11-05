@@ -1,0 +1,7 @@
+{
+  "host": "http://rnd.iot-dsa.org/conn",
+  "connectOnStart": false,
+  "title": "DSA Network Visualizer",
+  "version": "1.0",
+  "vendorString": "DSA Network Visualizer by DGLogik Inc."
+}
