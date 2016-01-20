@@ -3,5 +3,6 @@
   "connectOnStart": false,
   "title": "DSA Network Visualizer",
   "version": "1.0",
-  "vendorString": "DSA Network Visualizer by DGLogik Inc."
+  "vendorString": "Sample vendor string, add something here!",
+  "useJson": true
 }

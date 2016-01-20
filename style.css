@@ -134,9 +134,10 @@ body:not(.resizing) .sidebar {
 
 .sidebar .row-container,
 .action.window .row-container {
-  height: 100%;
+  min-height: 48px;
   width: 100%;
-  display: flex; }
+  display: flex;
+  position: relative; }
 
 .sidebar .row-title,
 .action.window .row-title {
@@ -167,12 +168,11 @@ body:not(.resizing) .sidebar {
   cursor: text; }
 
 .sidebar input.row-content,
-.sidebar select.row-content {
+.sidebar select.row-content,
+.window.action textarea.row-content {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 0;
-  padding: 0;
   text-align: left;
-  text-indent: 16px;
   border: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -180,8 +180,14 @@ body:not(.resizing) .sidebar {
   outline-color: transparent !important;
   outline-style: none !important; }
   .sidebar input.row-content:focus,
-  .sidebar select.row-content:focus {
+  .sidebar select.row-content:focus,
+  .window.action textarea.row-content:focus {
     background-color: rgba(255, 255, 255, 0.15); }
+  .sidebar input.row-content:not(textarea),
+  .sidebar select.row-content:not(textarea),
+  .window.action textarea.row-content:not(textarea) {
+    text-indent: 16px;
+    padding: 0; }
 
 .sidebar select.row-content {
   background-image: url("images/expand.svg");
@@ -220,7 +226,8 @@ body:not(.resizing) .sidebar {
     cursor: pointer; }
 
 .sidebar .color {
-  margin: 20px; }
+  margin: 20px;
+  flex-shrink: 0; }
 
 .sidebar .expand-icon {
   margin: 12px;
@@ -244,7 +251,7 @@ body:not(.resizing) .sidebar {
   will-change: transform;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
-.row-container {
+*:not(.recycler) > .row-container {
   height: 32px; }
 
 .value-node {
@@ -523,6 +530,12 @@ body:not(.resizing) .sidebar {
   .window.more .toolbar .version.version {
     margin-left: 4px; }
 
+.window.action .multiline {
+  min-height: 48px;
+  resize: vertical;
+  padding-left: 16px;
+  overflow-y: auto; }
+
 /*
  * styles for input and button
  * ===========================
@@ -588,8 +601,11 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
   overflow: hidden; }
-  body.resizing {
-    cursor: col-resize !important; }
+  body.resizing * {
+    cursor: col-resize !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+    -moz-user-select: none !important; }
 
 #container {
   display: flex;
@@ -645,5 +661,6 @@ i {
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.5); }
 
-::-webkit-scrollbar-corner {
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
   background-color: transparent; }
