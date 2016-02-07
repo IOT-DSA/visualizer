@@ -1,8 +1,8 @@
 {
-  "host": "http://rnd.iot-dsa.org/conn",
+  "host": "",
   "connectOnStart": false,
   "title": "DSA Network Visualizer",
   "version": "1.0",
-  "vendorString": "Sample vendor string, add something here!",
-  "useJson": true
+  "vendorString": "Built by DGLogik.",
+  "useJson": false
 }
