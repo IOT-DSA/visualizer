@@ -218,6 +218,8 @@ body:not(.resizing) .sidebar {
   padding: 9px 16px; }
   .sidebar .card.action-state.action-state--open {
     background-color: #3498db; }
+  .sidebar .card.action-state.action-state--error {
+    background-color: #e67e22; }
   .sidebar .card.action-state.action-state--closed {
     background-color: #95a5a6; }
   .sidebar .card.action-state > .more {
@@ -540,20 +542,33 @@ body:not(.resizing) .sidebar {
  * styles for input and button
  * ===========================
  */
-#broker-url {
+#broker-url,
+#connection-token {
   width: 256px;
   height: 32px;
   padding: 9px;
   border: none;
-  background-color: #34495e;
   border-radius: 4px;
-  color: white;
   border: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline-color: transparent !important;
   outline-style: none !important; }
+  #broker-url#broker-url,
+  #connection-token#broker-url {
+    background-color: #34495e;
+    color: white; }
+  #broker-url#connection-token,
+  #connection-token#connection-token {
+    margin-top: 8px;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.04);
+    color: #333;
+    align-self: flex-start; }
+
+::-webkit-input-placeholder {
+  color: #bdc3c7; }
 
 .btn {
   border-radius: 4px;
@@ -619,9 +634,10 @@ body {
 
 .inline-container {
   height: 32px;
+  width: 342px;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  flex-wrap: wrap; }
 
 .sub-title {
   opacity: 0.6;
